@@ -28,11 +28,31 @@ h2{color:var(--ac);font-size:1.8rem;margin:0 0 6px}.sub{color:var(--mu);margin:0
 .o{display:flex;gap:10px;justify-content:center;align-items:center;flex-wrap:wrap;margin-top:12px}
 .o div{width:130px;height:130px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#14213d;font-weight:600;font-size:14px;text-align:center}
 .o div span{font-size:40px;line-height:1.1}.o em{font-size:30px;color:var(--ac);font-style:normal}
-.ph{border:2px dashed var(--ac);border-radius:18px;padding:34px 20px;text-align:center;color:var(--mu);margin:12px 0}.ph .e{font-size:48px}
+a.lk{display:block;text-decoration:none;color:var(--fg);background:var(--card);border:2px solid var(--or);border-radius:18px;padding:22px;margin:12px 0;text-align:center;transition:transform .15s}
+a.lk:hover{transform:translateY(-3px)}a.lk .e{font-size:44px;line-height:1}a.lk h3{margin:8px 0 2px}a.lk p{margin:0;color:var(--mu);font-size:15px}
+a.lk.off{border-style:dashed;opacity:.65;pointer-events:none}
 footer{text-align:center;color:var(--mu);padding:34px}
 </style></head><body>
+<script>
+/* ===== EDITA SOLO ESTOS ENLACES (entre las comillas) ===== */
+var LINKS = {
+  formulario: "https://docs.google.com/forms/d/e/1FAIpQLScZBNYCPtWnuHD245hrLYmTaEJe7PzkaUiQgZqoAtzel8J5Qg/viewform",
+  grafico: "",
+  presentacion: "",
+  informe: "",
+  hoja: ""
+};
+/* ========================================================= */
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll("a.lk[data-k]").forEach(function (a) {
+    var u = LINKS[a.getAttribute("data-k")];
+    if (u) { a.href = u; a.target = "_blank"; a.rel = "noopener"; }
+    else { a.classList.add("off"); a.querySelector("p").textContent = "Enlace pendiente"; }
+  });
+});
+</script>
 <nav><a href="#inicio">Inicio</a><a href="#introduccion">Introducción</a><a href="#conceptos">Conceptos clave</a><a href="#aplicaciones">Aplicaciones prácticas</a><a href="#tecnologias">Tecnologías</a><a href="#resultados">Resultados</a><a href="#recursos">Recursos</a><a href="#conclusion">Conclusión</a></nav>
-<header class="hero" id="inicio"><div class="lock">🔐</div><h1>Seguridad de las contraseñas</h1><p>Proyecto digital del grupo · Aplicaciones Web · SMX</p><p>·Nacho Martin</p>
+<header class="hero" id="inicio"><div class="lock">🔐</div><h1>Seguridad de las contraseñas</h1><p>Proyecto digital del grupo · Aplicaciones Web · SMX</p><p>[Nombre del grupo] · [Miembros]</p>
 <div class="chips"><span>🔑 Claves largas</span><span>🔁 Una por servicio</span><span>📱 Dos pasos</span></div></header>
 <section id="introduccion"><h2>Introducción al tema</h2><p class="sub">La contraseña es la primera barrera de casi todas nuestras cuentas.</p>
 <div class="g"><div class="c"><div class="e">🚪</div><h3>Primera barrera</h3><p>Correo, redes y banca dependen de ella.</p></div><div class="c"><div class="e">🔁</div><h3>Se repiten</h3><p>Una filtración puede abrir muchas cuentas.</p></div><div class="c"><div class="e">🎣</div><h3>Se roban</h3><p>Phishing y filtraciones son las vías habituales.</p></div></div></section>
@@ -44,17 +64,21 @@ footer{text-align:center;color:var(--mu);padding:34px}
 <p>Larga, única y sin datos personales. Una frase de paso vale más que una palabra con símbolos.</p></section>
 <section id="aplicaciones"><h2>Aplicaciones prácticas</h2><p class="sub">Tres hábitos que puedes aplicar hoy.</p>
 <div class="flow"><div class="c"><div class="e">🧠</div><h3>Clave maestra</h3><p>Una frase larga que solo tú sabes.</p></div><div class="a">➜</div><div class="c"><div class="e">🗄️</div><h3>Gestor</h3><p>Guarda tus claves cifradas.</p></div><div class="a">➜</div><div class="c"><div class="e">🔑</div><h3>Claves únicas</h3><p>Una distinta en cada web.</p></div></div>
-<p>Revisa además si tu correo ha sido filtrado en haveibeenpwned.com.</p></section>
+<p>Revisa además si tu correo ha sido filtrado en <a href="https://haveibeenpwned.com" target="_blank" rel="noopener" style="color:var(--ac)">haveibeenpwned.com</a>.</p></section>
 <section id="tecnologias"><h2>Tecnologías</h2><p class="sub">Cómo nos atacan y cómo nos defendemos.</p>
 <div class="g"><div class="c"><div class="e">🔨</div><h3>Fuerza bruta</h3><p>Prueba combinaciones. <b>Defensa:</b> clave larga.</p></div><div class="c"><div class="e">📖</div><h3>Diccionario</h3><p>Prueba palabras comunes. <b>Defensa:</b> evitar lo típico.</p></div><div class="c"><div class="e">♻️</div><h3>Credential stuffing</h3><p>Reutiliza claves filtradas. <b>Defensa:</b> una por servicio.</p></div><div class="c"><div class="e">🎣</div><h3>Phishing</h3><p>Te engaña para que la des. <b>Defensa:</b> dos pasos.</p></div></div>
 <h3 style="margin-top:28px">Verificación en dos pasos</h3>
 <div class="o"><div style="background:#f0954a"><span>🧠</span>Algo que sabes</div><em>+</em><div style="background:#46c28a"><span>📱</span>Algo que tienes</div><em>+</em><div style="background:#8ab4f8"><span>🖐️</span>Algo que eres</div></div></section>
-<section id="resultados"><h2>Resultados de la encuesta</h2><p class="sub">8 preguntas, 4 tipos, respondidas por la clase.</p>
-<div class="ph"><div class="e">📝</div>https://docs.google.com/forms/d/e/1FAIpQLScZBNYCPtWnuHD245hrLYmTaEJe7PzkaUiQgZqoAtzel8J5Qg/viewform?usp=publish-editor</div>
-<div class="ph"><div class="e">📊</div>[Incrusta aquí un gráfico de la hoja de resultados]</div>
-<div class="ph"><div class="e">🎞️</div>[Incrusta aquí la presentación]</div>
+<section id="resultados"><h2>Resultados de la encuesta</h2><p class="sub">Responde la encuesta y mira los resultados.</p>
+<a class="lk" data-k="formulario"><div class="e">📝</div><h3>Responder la encuesta</h3><p></p></a>
+<a class="lk" data-k="grafico"><div class="e">📊</div><h3>Ver el gráfico de resultados</h3><p></p></a>
+<a class="lk" data-k="presentacion"><div class="e">🎞️</div><h3>Ver la presentación</h3><p></p></a>
 <p>[Interpretación breve de los resultados.]</p></section>
-<section id="recursos"><h2>Recursos</h2><div class="g"><div class="c"><div class="e">📄</div><h3>Informe</h3><p>[enlace]</p></div><div class="c"><div class="e">🎞️</div><h3>Presentación</h3><p>[enlace]</p></div><div class="c"><div class="e">🔎</div><h3>Filtraciones</h3><p>haveibeenpwned.com</p></div><div class="c"><div class="e">🎨</div><h3>Plantilla e imágenes</h3><p>[indicar fuente]</p></div></div></section>
+<section id="recursos"><h2>Recursos</h2><div class="g">
+<a class="lk" data-k="informe"><div class="e">📄</div><h3>Informe</h3><p></p></a>
+<a class="lk" data-k="presentacion"><div class="e">🎞️</div><h3>Presentación</h3><p></p></a>
+<a class="lk" data-k="hoja"><div class="e">📈</div><h3>Hoja de resultados</h3><p></p></a>
+<a class="lk" href="https://haveibeenpwned.com" target="_blank" rel="noopener"><div class="e">🔎</div><h3>Comprobar filtraciones</h3><p>haveibeenpwned.com</p></a></div></section>
 <section id="conclusion"><h2>Conclusión</h2><div class="c"><p>[Conclusión del grupo con los datos de la encuesta.]</p><p><b>En resumen:</b> claves largas y únicas, un gestor y los dos pasos activados reducen mucho el riesgo.</p></div></section>
 <footer>Proyecto digital del grupo · SMX · 2026</footer>
 </body></html>
